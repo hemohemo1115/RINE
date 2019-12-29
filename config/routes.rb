@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'rooms/show'
+  root 'users#index'
   get 'sessions/new'
   get  '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
