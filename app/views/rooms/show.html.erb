@@ -1,2 +1,11 @@
-<h1>Rooms#show</h1>
-<p>Find me in app/views/rooms/show.html.erb</p>
+<h1>Chat room</h1>
+<div id='messages'>
+  <%= render @messages %>
+</div>
+
+
+<%# jsにcurrent_userのデータを渡している %>
+<input name="current_user_id" type="hidden" value="<%= @current_user.id %>" class="current_user_id">
+<input name="current_user_name" type="hidden" value="<%= @current_user.name %>" class="current_user_name">
+<%= label_tag :content, 'Say something:' %>
+<%= text_field_tag :content, nil, data: { behavior: 'room_speaker' } %>
