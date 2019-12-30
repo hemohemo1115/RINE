@@ -6,12 +6,12 @@
       <%#<h1>
         <%= link_to @user.name, "/rooms/show" %>
       <%#</h1>%>
-        <% @rooms.each do |room| %>
-            <li><%= link_to "ROOM#{room.id}", room_path(room) %></li>
-        <% end %>
     </section>
     <h1>
-        <%= current_user.name %>
+        <%= @user.name %>
     </h1>
+    <% if @user != current_user %>
+      <%#<%= link_to "チャットを始める", create_path %>
+    <% end %>
   </aside>
 </div>

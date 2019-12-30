@@ -1,6 +1,11 @@
 class RoomsController < ApplicationController
   before_action :logged_in_user
 
+  def index
+    @users = User.all
+    @rooms = Room.all.order(:id)
+  end
+
   def show
     #オープンチャット機能用
     #@messages = Message.all
@@ -11,10 +16,10 @@ class RoomsController < ApplicationController
   end
 
   def create
-    current_user.rooms.create
-    @rooms = Room.all.order(:id)
+    room = current_user.rooms.create(id: params[:id])
+    #@rooms = Room.all.order(:id)
     #render action: :index
-    redirect_to root_path
+    redirect_to room_path(room)
   end
 
   private

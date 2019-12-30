@@ -1,6 +1,9 @@
-<%= javascript_include_tag "show.js" %>
+<%#<%= javascript_include_tag "show.js" %>
+<%= link_to "ルーム一覧に戻る", root_path %>
+<h1>チャットルーム</h1>
+<h2></h2>
 
-<h1>Chat room</h1>
+<p></p>
 <div id='messages' data-room_id="<%= @room.id %>">
   <%= render @messages %>
 </div>

@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   get 'rooms/show'
-  root 'users#index'
+  root 'rooms#index'
   get 'sessions/new'
-  get '/create', to: 'rooms#create'
+  get '/create(/:id)', to: 'rooms#create'
   get  '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
   get    '/login',   to: 'sessions#new'
