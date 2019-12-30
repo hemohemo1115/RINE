@@ -3,23 +3,17 @@
 <%= javascript_include_tag "window.js" %>
 <ul class="users">
   <% @users.each do |user| %>
-    <li>
         <% if user != current_user %>
             <% user.id < current_user.id ? roomid = ("#{user.id}" + "#{current_user.id}").to_i : roomid = ("#{current_user.id}" + "#{user.id}").to_i %>
             <% if room = @rooms.find_by(id: roomid) %>
-                <%= link_to user.name, room_path(room) %>
+                <li>
+                    <%= link_to user.name, room_path(room) %>
+
+                </li>
             <% else %>
-                <%= link_to user.name, "create/#{roomid}" %>
+                <li><%= link_to user.name, "create/#{roomid}" %></li>
             <% end %>
         <% end %>
-
-    </li>
   <% end %>
 
-    <!-- <% if @rooms %>
-        <% @rooms.each do |r| %>
-            <li><%= link_to "ROOM#{r.id}", room_path(r) %></li>
-        <% end %>
-    <% end %>
-    <%= link_to "ROOM新規作成", "create/#{@rooms}" %> -->
 </ul>

@@ -22,7 +22,7 @@ class RoomChannel < ApplicationCable::Channel
     #@user = data['current_user']
     #puts @user
     #puts current_user
-    puts "oooooooooooooo"
+    #puts "oooooooooooooo" デバッグ用
     #puts current_user.id
     
     messages = current_user.messages.create(content: data['message'], user_id: data['current_user_id'], user_name: data['current_user_name'], room_id: params['room'])
@@ -32,7 +32,7 @@ class RoomChannel < ApplicationCable::Channel
   private
 
     def render_message(message)
-      puts "AAAAAAAAAAAAAAAAAA"
+      #puts "AAAAAAAAAAAAAAAAAA" デバッグ用
       ApplicationController.renderer.render partial: 'messages/message', locals: { message: message }
     end
 end
