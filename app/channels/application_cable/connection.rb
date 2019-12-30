@@ -11,8 +11,8 @@ module ApplicationCable
       #verified_user = User.find_by(id: env['warden'].user.id)
       #return reject_unauthorized_connection unless verified_user
       #verified_user
-      puts "000000000000"
-      puts User.find_by(id: cookies.encrypted[:user_id])
+      #puts "000000000000" デバッグ用
+      #puts User.find_by(id: cookies.encrypted[:user_id]) デバッグ用
       if verified_user = User.find_by(id: cookies.encrypted[:user_id])
         verified_user
       else
