@@ -11,9 +11,6 @@ class MessageBroadcastJob < ApplicationJob
   private
 
     def render_message(message)
-      #オープンチャット機能用
       ApplicationController.renderer.render partial: 'messages/message', locals: { message: message }
-      #DM機能用
-      #ActionCable.server.broadcast "room_channel_#{message.room_id}", message: render_message(message)
     end
 end
