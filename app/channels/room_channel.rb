@@ -10,6 +10,10 @@ class RoomChannel < ApplicationCable::Channel
     # Any cleanup needed when channel is unsubscribed
   end
 
+  def receive(data)
+    ActionCable.server.broadcast("room_channel_#{params['room']}", data)
+  end
+
   def speak(data)
     #オープンチャット機能用
     #Message.create! content: data['message'], user_id: data['current_user_id'], user_name: data['current_user_name']

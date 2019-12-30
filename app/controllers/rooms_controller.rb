@@ -16,7 +16,9 @@ class RoomsController < ApplicationController
   end
 
   def create
-    room = current_user.rooms.create(id: params[:id])
+    if(!Room.find_by(id: params[:id]))
+      room = current_user.rooms.create(id: params[:id])
+    end
     #@rooms = Room.all.order(:id)
     #render action: :index
     redirect_to room_path(room)
