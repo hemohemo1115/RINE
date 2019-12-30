@@ -5,6 +5,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
           <li><%= "ようこそ　#{current_user.name}　さん" %></li>
+        <% end %>
         <li><%= link_to "ホーム", root_path %></li>
         <li><%#<%= link_to "Help", help_path %></li>
         <% if logged_in? %>
