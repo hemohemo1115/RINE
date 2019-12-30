@@ -5,5 +5,6 @@ class CreateRooms < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+    #add_index :rooms, [:user_id]
   end
 end

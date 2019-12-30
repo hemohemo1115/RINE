@@ -9,4 +9,10 @@
         <% end %>
     </li>
   <% end %>
+    <% if @rooms %>
+        <% @rooms.each do |room| %>
+            <li><%= link_to "ROOM#{room.id}", room_path(room) %></li>
+        <% end %>
+    <% end %>
+    <%= link_to "ROOM新規作成", create_path %>
 </ul>

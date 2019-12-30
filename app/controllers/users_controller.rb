@@ -4,10 +4,12 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @rooms = Room.all.order(:id)
   end
 
   def show
     @user = User.find(params[:id])
+    @rooms = Room.all.order(:id)
   end
 
   def new

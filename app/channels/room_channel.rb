@@ -1,6 +1,9 @@
 class RoomChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "room_channel"
+    #オープンチャット機能用
+    #stream_from "room_channel"
+    #DM機能用
+    stream_from "room_channel_#{params['room']}" 
   end
 
   def unsubscribed
@@ -8,6 +11,15 @@ class RoomChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    Message.create! content: data['message'], user_id: data['current_user_id'], user_name: data['current_user_name']
+    #オープンチャット機能用
+    #Message.create! content: data['message'], user_id: data['current_user_id'], user_name: data['current_user_name']
+    #DM機能用
+    #Message.create! content: data['message'], user_id: data['current_user_id'], user_name: data['current_user_name'], room_id: params['room']
+    @user = data['current_user']
+    puts @user
+    puts current_user
+    puts "oooooooooooooo"
+    puts current_user.id
+    current_user.messages.create(content: data['message'], user_id: data['current_user_id'], user_name: data['current_user_name'], room_id: params['room'])
   end
 end

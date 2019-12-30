@@ -2,8 +2,19 @@ class RoomsController < ApplicationController
   before_action :logged_in_user
 
   def show
-    @messages = Message.all
-    @current_user = current_user
+    #オープンチャット機能用
+    #@messages = Message.all
+    #@current_user = current_user
+    #DM機能用
+    @room = Room.find(params[:id])
+    @messages = @room.messages
+  end
+
+  def create
+    current_user.rooms.create
+    @rooms = Room.all.order(:id)
+    #render action: :index
+    redirect_to root_path
   end
 
   private

@@ -7,6 +7,8 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       log_in user
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
+      # Cookieにuser_idを署名付きで保存する
+      cookies.encrypted[:user_id] = user.id
       redirect_back_or user
     else
       flash.now[:danger] = 'Invalid email/password combination'
