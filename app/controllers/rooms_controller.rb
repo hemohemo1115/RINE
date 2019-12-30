@@ -18,6 +18,8 @@ class RoomsController < ApplicationController
   def create
     if(!Room.find_by(id: params[:id]))
       room = current_user.rooms.create(id: params[:id])
+    else
+      room = Room.find_by(id: params[:id])
     end
     #@rooms = Room.all.order(:id)
     #render action: :index
