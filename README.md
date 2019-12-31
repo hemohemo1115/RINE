@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+リアルタイムチャットWebアプリ
 
-Things you may want to cover:
+## 会員一覧
 
-* Ruby version
+* email:example@railstutorial.org, password:foobar
 
-* System dependencies
+* email:example2@railstutorial.org, password:foobar
 
-* Configuration
+* email:example3@railstutorial.org, password:foobar
 
-* Database creation
+* email:example4@railstutorial.org, password:foobar
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* email:example5@railstutorial.org, password:foobar
