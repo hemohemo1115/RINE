@@ -1,7 +1,7 @@
 # README
 
 リアルタイムチャットWebアプリ
-
+URL https://rine-39874.herokuapp.com/
 ## 会員一覧
 
 * email:example@railstutorial.org, password:foobar
